@@ -1,10 +1,20 @@
 import pysd
 import pandas as pd
-import SDRex_tools as SDRexT
-from BaseClass import ParameterData
-import ModelML as ml
-from MIRCO import MIRCO
+from SD_Rule_Extraction.SDRexLib.BaseClass import ParameterData
+import SD_Rule_Extraction.SDRexLib.ModelML as ml
 from sklearn.ensemble import RandomForestRegressor
+import os
+import sys
+
+import SD_Rule_Extraction.SDRexLib.SDRex_tools as SDRexT
+
+# Add the parent directory to the module search path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
+
+# Import the MIRCO module
+from MIRCO import MIRCO
 
 
 class SDRuleX:

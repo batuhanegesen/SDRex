@@ -1,4 +1,4 @@
-from BaseClass import Parameter
+from SD_Rule_Extraction.SDRexLib.BaseClass import Parameter
 import pandas as pd
 from scipy.stats.qmc import LatinHypercube
 from scipy.stats import qmc

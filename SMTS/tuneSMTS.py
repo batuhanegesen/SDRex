@@ -369,33 +369,33 @@ def generate_codebook(nodestatus, terminal, nofterminal, nofobservations):
 
 
 
-df = pd.read_csv("CBF_TRAIN.csv", header=None)
-classes = df.iloc[:, -1:]
-train_data = df.iloc[:, :-1]
+# df = pd.read_csv("CBF_TRAIN.csv", header=None)
+# classes = df.iloc[:, -1:]
+# train_data = df.iloc[:, :-1]
 
-opt_params = tune_SMTS(train_data, classes)
+# opt_params = tune_SMTS(train_data, classes)
 
-import trainSMTS as trainer
-import predictSMTS as predictor
+# import trainSMTS as trainer
+# import predictSMTS as predictor
 
-trainer.train_SMTS(train_data, classes, opt_params)
+# trainer.train_SMTS(train_data, classes, opt_params)
 
-df_t = pd.read_csv("CBF_TEST.csv", index_col=0 )
-classes_t = df_t.iloc[1:, -1:]
-test_data = df_t.iloc[:, :-1]
-pred = predictor.predict_SMTS(test_data,"model_data.joblib")
+# df_t = pd.read_csv("CBF_TEST.csv", index_col=0 )
+# classes_t = df_t.iloc[1:, -1:]
+# test_data = df_t.iloc[:, :-1]
+# pred = predictor.predict_SMTS(test_data,"model_data.joblib")
 
 
 
-observed_classes = list(test_data)
-predicted_classes = list(pred['classPred'])
+# observed_classes = list(test_data)
+# predicted_classes = list(pred['classPred'])
 
-# Create Series objects
-observed_series = pd.Series(observed_classes, name='Observed')
-predicted_series = pd.Series(predicted_classes, name='Predicted')
+# # Create Series objects
+# observed_series = pd.Series(observed_classes, name='Observed')
+# predicted_series = pd.Series(predicted_classes, name='Predicted')
 
-# Create a DataFrame and compute the cross-tabulation
-table = pd.crosstab(observed_series, predicted_series)
-table
+# # Create a DataFrame and compute the cross-tabulation
+# table = pd.crosstab(observed_series, predicted_series)
+# table
 # Display the table
 # print(table)
